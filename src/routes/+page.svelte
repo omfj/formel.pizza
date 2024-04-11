@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	import PizzaFall from '$lib/PizzaFall.svelte';
-	import { calculatePizzas } from '$lib/pizza';
+	import { calculatePizzas, pizza } from '$lib/pizza';
 
 	let people = $state();
 	let message = $state<string | number>('Fyll inn antall personer');
@@ -12,6 +11,10 @@
 		} else {
 			message = 'Fyll inn antall personer';
 		}
+	});
+
+	$effect(() => {
+		console.log(pizza);
 	});
 </script>
 
