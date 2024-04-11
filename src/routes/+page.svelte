@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
+	import PizzaFall from '$lib/PizzaFall.svelte';
 	import { calculatePizzas } from '$lib/pizza';
 
 	let people = $state();
@@ -13,13 +15,27 @@
 	});
 </script>
 
-<main class="py-24 max-w-[648px] w-full mx-auto mx-auto space-y-8 px-4">
-	<h1 class="text-4xl">Pizza-formelen 🍕</h1>
+<svelte:head>
+	<title>Pizza-formelen</title>
+	<meta
+		name="description"
+		content="Hvor mange pizzaer trenger du til antall personer? Finn ut med pizza-formelen."
+	/>
+	<meta name="keywords" content="pizza, mat, formel, antall personer, pizza-formelen" />
+	<meta name="author" content="echo" />
+	<meta name="robots" content="index, follow" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+</svelte:head>
+
+<PizzaFall />
+
+<main class="py-24 max-w-[648px] w-full z-10 mx-auto mx-auto space-y-12 px-4">
+	<h1 class="text-4xl">Pizza-formelen</h1>
 
 	<section class="space-y-4">
 		<h2 class="text-2xl font-medium mb-4">Formelen</h2>
 
-		<p>3 / 8 × antall personer = antall pizza</p>
+		<p>⌈3 / 8 × antall personer⌉ = antall pizza</p>
 	</section>
 
 	<section class="space-y-4">
