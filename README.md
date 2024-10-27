@@ -1,3 +1,1 @@
 # 🍕🍕🍕
-
-TODO: Virtualize list
