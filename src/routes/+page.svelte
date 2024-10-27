@@ -31,47 +31,53 @@
 	});
 </script>
 
-<PizzaFall />
+<div class="bg-background min-h-screen w-full">
+	<PizzaFall />
 
-<main class="py-24 max-w-[648px] w-full z-30 mx-auto mx-auto space-y-12 px-4">
-	<h1 class="text-5xl font-medium font-serif">Pizza-formelen</h1>
+	<main class="py-24 max-w-[648px] w-full text-text z-30 mx-auto mx-auto space-y-12 px-4">
+		<h1 class="text-5xl font-medium font-serif">Pizza-formelen</h1>
 
-	<section class="space-y-4">
-		<h2 class="text-3xl font-medium mb-4 font-serif">Formelen</h2>
+		<section class="space-y-4">
+			<h2 class="text-3xl font-medium mb-4 font-serif">Formelen</h2>
 
-		<p class="text-lg">⌈3 / 8 × antall personer⌉ = antall pizza</p>
-	</section>
+			<p
+				class="font-mono bg-white px-4 py-2 flex items-center justify-start border rounded-lg border-border"
+			>
+				⌈3 / 8 × antall personer⌉ = antall pizza
+			</p>
+		</section>
 
-	<section class="space-y-4">
-		<h2 class="text-3xl font-medium mb-4 font-serif">Kalkulator</h2>
+		<section class="space-y-4">
+			<h2 class="text-3xl font-medium mb-4 font-serif">Kalkulator</h2>
 
-		<input
-			type="number"
-			class="border border-gray-300 bg-white px-4 py-2 w-full rounded-lg"
-			bind:value={count}
-			placeholder="Antall personer"
-		/>
+			<input
+				type="number"
+				class="border border-gray-300 bg-white px-4 py-2 w-full rounded-lg"
+				bind:value={count}
+				placeholder="Antall personer"
+			/>
 
-		<div class="text-2xl">
-			{#if count && count > 0}
-				{@const pizzas = calculatePizzas(count)}
-				<p>
-					{#each Array.from({ length: pizzas }) as _, i}
-						<span>🍕</span>
-					{/each}
-					<span>=</span> <span>{pizzas}</span>
-				</p>
-			{:else}
-				<p class="text-gray-500 text-xl">Fyll inn antall personer</p>
-			{/if}
+			<div class="text-2xl">
+				{#if count && count > 0}
+					{@const pizzas = calculatePizzas(count)}
+					<p>
+						{#each Array.from({ length: pizzas }) as _, i}
+							<span>🍕</span>
+						{/each}
+						<span>=</span> <span>{pizzas}</span>
+					</p>
+				{:else}
+					<p class="text-muted text-xl">Fyll inn antall personer</p>
+				{/if}
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="py-4 text-center">
+			<p class="text-sm text-muted hover:text-muted-hover transition-colors">
+				<a href="https://echo.uib.no" class="hover:underline">echo.uib.no</a>
+			</p>
 		</div>
-	</section>
-</main>
-
-<footer>
-	<div class="py-4 text-center">
-		<p class="text-sm text-gray-500 hover:text-gray-700 transition-colors">
-			<a href="https://echo.uib.no" class="underline">echo.uib.no</a>
-		</p>
-	</div>
-</footer>
+	</footer>
+</div>

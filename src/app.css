@@ -4,3 +4,21 @@
 	border-sizing: border-box;
 	min-width: 0;
 }
+
+:root {
+	--background: #f9f9f9;
+	--text: #222;
+	--muted: #666;
+	--muted-hover: #444;
+	--border: #ddd;
+}
+
+@theme {
+	--color-background: var(--background);
+	--color-text: var(--text);
+	--color-muted: var(--muted);
+	--color-muted-hover: var(--muted-hover);
+	--color-border: var(--border);
+
+	--font-family: 'Roboto', sans-serif;
+}
